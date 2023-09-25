@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return response()->json([
+        'items' => \App\Http\Resources\CustomerResource::collection(\App\Models\Customer::all())
+    ]);
 });
